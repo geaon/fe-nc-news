@@ -86,3 +86,9 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+img {
+  width: 9cm;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
