@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { getArticleById } from "../../api";
 import ArticleComments from "./ArticleComments";
+import ArticleVotes from "./ArticleVotes";
 
 export default function IndividualArticle() {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState({});
   const [comments, setComments] = useState([]);
+  const [votes, setVotes] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -17,19 +18,43 @@ export default function IndividualArticle() {
     });
   }, [article_id]);
 
+  function handleComments() {
+    if (comments) {
+      setComments(false);
+    } else {
+      setComments(true);
+    }
+  }
+
   if (loaded) {
     return (
       <>
         <section key={singleArticle.article_id} className="single_article">
           <p className="article_title">{singleArticle.title}</p>
+
           <img src={singleArticle.article_img_url} />
+
           <p>Written by: {singleArticle.author}</p>
-          <p>Topic: {singleArticle.topic}</p>
-          <p>Votes: {singleArticle.votes}</p>
-          <p>Comments: {singleArticle.comment_count}</p>
+
           <p>Created: {singleArticle.created_at}</p>
+
+          <p>Topic: {singleArticle.topic}</p>
+
+          <ArticleVotes
+            totalVotes={singleArticle.votes}
+            article_id={article_id}
+          ></ArticleVotes>
+
+          <button onClick={handleComments}>
+            {comments
+              ? "Hide Comments"
+              : `View Comments: ${singleArticle.comment_count}`}
+          </button>
+
+          {comments ? (
+            <ArticleComments article_id={singleArticle.article_id} />
+          ) : null}
         </section>
-        <ArticleComments comments={comments} setComments={setComments} />
       </>
     );
   }
