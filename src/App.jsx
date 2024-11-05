@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import "./css_files/App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import IndividualArticle from "./components/IndividualArticle";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <section>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/articles/:article_id" element={<IndividualArticle />} />
         </Routes>
       </section>
     </>
