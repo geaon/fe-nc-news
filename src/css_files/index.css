@@ -28,6 +28,15 @@ a:hover {
   align-items: center;
 }
 
+.topic_articles {
+  display: block;
+  margin-top: 40px;
+}
+
+.topic_article_title {
+  font-size: x-large;
+}
+
 body {
   margin: 0;
   place-items: center;
@@ -105,4 +114,8 @@ img {
 .like_buttons {
   display: flex;
   justify-content: center;
+}
+
+.article {
+  margin-top: 40px;
 }

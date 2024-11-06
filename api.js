@@ -59,3 +59,13 @@ export function deleteComment(comment_id) {
       console.log(results, "deleted");
     });
 }
+
+export function getTopicArticles(topic_name) {
+  return axios
+    .get(`https://be-nc-news-osc4.onrender.com/api/articles`, {
+      params: { topic_name },
+    })
+    .then((results) => {
+      return results.data.articles;
+    });
+}
