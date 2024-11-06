@@ -3,12 +3,12 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../../api";
 import ArticleComments from "./ArticleComments";
 import ArticleVotes from "./ArticleVotes";
+import PostComment from "./PostComments";
 
 export default function IndividualArticle() {
   const { article_id } = useParams();
   const [singleArticle, setSingleArticle] = useState({});
   const [comments, setComments] = useState([]);
-  const [votes, setVotes] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -54,6 +54,12 @@ export default function IndividualArticle() {
           {comments ? (
             <ArticleComments article_id={singleArticle.article_id} />
           ) : null}
+
+          <PostComment
+            article_id={article_id}
+            comments={comments}
+            setComments={setComments}
+          ></PostComment>
         </section>
       </>
     );
