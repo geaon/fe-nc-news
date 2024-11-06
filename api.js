@@ -27,10 +27,27 @@ export function getComments(article_id) {
 }
 
 export function updateVotes(article_id, votes) {
-  console.log(article_id);
-  console.log(votes);
   return axios.patch(
     `https://be-nc-news-osc4.onrender.com/api/articles/${article_id}`,
     { inc_votes: votes }
   );
+}
+
+export function getUser() {
+  return axios
+    .get(`https://be-nc-news-osc4.onrender.com/api/users`)
+    .then((results) => {
+      return results.data.users;
+    });
+}
+
+export function postComment(article_id, comment) {
+  return axios
+    .post(
+      `https://be-nc-news-osc4.onrender.com/api/articles/${article_id}/comments`,
+      comment
+    )
+    .then((results) => {
+      return results;
+    });
 }
