@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { postComment } from "../../api";
 
-export default function PostComment({ article_id, setComments }) {
+export default function CommentAdder({ article_id, setComments }) {
   const [newComment, setNewComment] = useState({
     username: "grumpy19",
     body: "",

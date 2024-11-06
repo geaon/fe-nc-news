@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../../api";
 import ArticleComments from "./ArticleComments";
 import ArticleVotes from "./ArticleVotes";
-import PostComment from "./PostComments";
+import CommentAdder from "./CommentAdder";
 
 export default function IndividualArticle() {
   const { article_id } = useParams();
@@ -55,11 +55,11 @@ export default function IndividualArticle() {
             <ArticleComments article_id={singleArticle.article_id} />
           ) : null}
 
-          <PostComment
+          <CommentAdder
             article_id={article_id}
             comments={comments}
             setComments={setComments}
-          ></PostComment>
+          ></CommentAdder>
         </section>
       </>
     );
