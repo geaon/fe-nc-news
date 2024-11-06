@@ -51,3 +51,11 @@ export function postComment(article_id, comment) {
       return results;
     });
 }
+
+export function deleteComment(comment_id) {
+  return axios
+    .delete(`https://be-nc-news-osc4.onrender.com/api/comments/${comment_id}`)
+    .then((results) => {
+      console.log(results, "deleted");
+    });
+}
