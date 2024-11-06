@@ -12,13 +12,13 @@ export default function Header() {
         <h1>NC NEWS</h1>
       </header>
       <nav>
-        <Link to="/topic/Coding" className="button" id="coding">
+        <Link to="/topic/coding" className="button" id="coding">
           CODING
         </Link>
-        <Link to="/topic/Cooking" className="button" id="cooking">
+        <Link to="/topic/cooking" className="button" id="cooking">
           COOKING
         </Link>
-        <Link to="/topic/Football" className="button" id="football">
+        <Link to="/topic/football" className="button" id="football">
           FOOTBALL
         </Link>
       </nav>

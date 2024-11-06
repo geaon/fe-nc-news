@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getArticles } from "../../api";
 
-export default function ArticlesList() {
+export default function ArticlesList({ topic }) {
   const [articlesList, setArticlesList] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
@@ -23,6 +23,7 @@ export default function ArticlesList() {
                 <Link to={`/articles/${article.article_id}`}>
                   {article.title}
                 </Link>
+                <br></br>
                 <img src={article.article_img_url} style={{ width: "70%" }} />
                 <p>Written by: {article.author}</p>
                 <p>Topic: {article.topic}</p>
