@@ -1,8 +1,20 @@
 import axios from "axios";
 
-export function getArticles() {
+export function getArticles(queries) {
   return axios
-    .get(`https://be-nc-news-osc4.onrender.com/api/articles`)
+    .get(`https://be-nc-news-osc4.onrender.com/api/articles`, {
+      params: queries,
+    })
+    .then((results) => {
+      return results.data.articles;
+    });
+}
+
+export function getTopicArticles(queries) {
+  return axios
+    .get(`https://be-nc-news-osc4.onrender.com/api/articles`, {
+      params: queries,
+    })
     .then((results) => {
       return results.data.articles;
     });
@@ -57,15 +69,5 @@ export function deleteComment(comment_id) {
     .delete(`https://be-nc-news-osc4.onrender.com/api/comments/${comment_id}`)
     .then((results) => {
       console.log(results, "deleted");
-    });
-}
-
-export function getTopicArticles(topic_name) {
-  return axios
-    .get(`https://be-nc-news-osc4.onrender.com/api/articles`, {
-      params: { topic_name },
-    })
-    .then((results) => {
-      return results.data.articles;
     });
 }

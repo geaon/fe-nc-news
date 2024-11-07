@@ -10,6 +10,7 @@ import TopicArticles from "./components/TopicArticles";
 
 function App() {
   const [user, setUser] = useState("grumpy19");
+  const [sort, setSort] = useState("");
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <section>

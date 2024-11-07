@@ -8,9 +8,6 @@ export default function Header() {
           <Link to="/">HOME</Link>
         </button>
       </nav>
-      <header className="header" id="header">
-        <h1>NC NEWS</h1>
-      </header>
       <nav>
         <Link to="/topic/coding" className="button" id="coding">
           CODING
@@ -22,6 +19,9 @@ export default function Header() {
           FOOTBALL
         </Link>
       </nav>
+      <header className="header" id="header">
+        <h1>NC NEWS</h1>
+      </header>
     </>
   );
 }
