@@ -7,10 +7,11 @@ import IndividualArticle from "./components/IndividualArticle";
 import UserContext from "./contexts/userContext";
 import ArticlesList from "./components/ArticlesList";
 import TopicArticles from "./components/TopicArticles";
+import Error from "./components/Error";
 
 function App() {
   const [user, setUser] = useState("grumpy19");
-  const [sort, setSort] = useState("");
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       <section>
@@ -18,6 +19,7 @@ function App() {
       </section>
       <section>
         <Routes>
+          <Route path="/*" element={<Error />} />
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<ArticlesList />} />
           <Route path="/articles/:article_id" element={<IndividualArticle />} />
