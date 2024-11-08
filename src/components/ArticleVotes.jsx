@@ -6,6 +6,7 @@ export default function ArticleVotes(props) {
   const [votes, setVotes] = useState(0);
   const [userLike, setUserLike] = useState(0);
   const [userDislike, setUserDislike] = useState(0);
+  const [error, setError] = useState(false);
 
   function updateLikes(vote) {
     setVotes((currVote) => {
@@ -16,19 +17,28 @@ export default function ArticleVotes(props) {
   }
 
   function handleLikes() {
-    updateVotes(article_id, 1).then((result) => {
-      updateLikes(1);
-    });
+    updateVotes(article_id, 1)
+      .then((result) => {
+        updateLikes(1);
+      })
+      .catch((err) => setError(true));
   }
 
   function handleDislikes() {
-    updateVotes(article_id, -1).then((result) => updateLikes(-1));
+    updateVotes(article_id, -1)
+      .then((result) => updateLikes(-1))
+      .catch((err) => setError(true));
   }
+
+  if (error) return <p>Sorry, unable to vote. Please try again!</p>;
+
   return (
-    <section className="like_buttons">
-      <button onClick={handleDislikes}> - Dislike</button>
-      <p>Votes: {totalVotes + votes}</p>
-      <button onClick={handleLikes}> + Like</button>
-    </section>
+    <>
+      <section className="like_buttons">
+        <button onClick={handleDislikes}> - Dislike</button>
+        <p>Votes: {totalVotes + votes}</p>
+        <button onClick={handleLikes}> + Like</button>
+      </section>
+    </>
   );
 }

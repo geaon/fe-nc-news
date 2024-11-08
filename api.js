@@ -7,6 +7,9 @@ export function getArticles(queries) {
     })
     .then((results) => {
       return results.data.articles;
+    })
+    .catch((err) => {
+      return err;
     });
 }
 
@@ -17,6 +20,9 @@ export function getTopicArticles(queries) {
     })
     .then((results) => {
       return results.data.articles;
+    })
+    .catch((err) => {
+      return err;
     });
 }
 
@@ -25,6 +31,9 @@ export function getArticleById(article_id) {
     .get(`https://be-nc-news-osc4.onrender.com/api/articles/${article_id}`)
     .then((results) => {
       return results.data.article;
+    })
+    .catch((err) => {
+      return err;
     });
 }
 
@@ -35,14 +44,20 @@ export function getComments(article_id) {
     )
     .then((results) => {
       return results;
+    })
+    .catch((err) => {
+      return err;
     });
 }
 
 export function updateVotes(article_id, votes) {
-  return axios.patch(
-    `https://be-nc-news-osc4.onrender.com/api/articles/${article_id}`,
-    { inc_votes: votes }
-  );
+  return axios
+    .patch(`https://be-nc-news-osc4.onrender.com/api/articles/${article_id}`, {
+      inc_votes: votes,
+    })
+    .catch((err) => {
+      return err;
+    });
 }
 
 export function getUser() {
@@ -50,6 +65,9 @@ export function getUser() {
     .get(`https://be-nc-news-osc4.onrender.com/api/users`)
     .then((results) => {
       return results.data.users;
+    })
+    .catch((err) => {
+      return err;
     });
 }
 
@@ -61,6 +79,9 @@ export function postComment(article_id, comment) {
     )
     .then((results) => {
       return results;
+    })
+    .catch((err) => {
+      return err;
     });
 }
 
@@ -69,5 +90,8 @@ export function deleteComment(comment_id) {
     .delete(`https://be-nc-news-osc4.onrender.com/api/comments/${comment_id}`)
     .then((results) => {
       console.log(results, "deleted");
+    })
+    .catch((err) => {
+      return err;
     });
 }
