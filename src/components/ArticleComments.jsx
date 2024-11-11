@@ -2,19 +2,28 @@ import { useState, useEffect } from "react";
 import { getComments } from "../../api";
 import { useParams } from "react-router-dom";
 import CommentDeleter from "./CommentDeleter";
+import Error from "./Error";
 
 export default function ArticleComments() {
   const { article_id } = useParams();
   const [comments, setComments] = useState([]);
   const [deleteComment, setDeleteComment] = useState();
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    getComments(article_id).then((result) => {
-      setComments(result.data.comments);
-      setLoaded(true);
-    });
+    getComments(article_id)
+      .then((result) => {
+        setComments(result.data.comments);
+        setLoaded(true);
+      })
+      .catch((err) => {
+        setLoaded(true);
+        setError(true);
+      });
   }, [comments]);
+
+  if (error) return <Error />;
 
   if (loaded) {
     return (

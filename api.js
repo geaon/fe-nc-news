@@ -20,9 +20,6 @@ export function getTopicArticles(queries) {
     })
     .then((results) => {
       return results.data.articles;
-    })
-    .catch((err) => {
-      return err;
     });
 }
 
@@ -31,9 +28,6 @@ export function getArticleById(article_id) {
     .get(`https://be-nc-news-osc4.onrender.com/api/articles/${article_id}`)
     .then((results) => {
       return results.data.article;
-    })
-    .catch((err) => {
-      return err;
     });
 }
 

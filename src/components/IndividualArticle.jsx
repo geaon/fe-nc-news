@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ArticleComments from "./ArticleComments";
 import ArticleVotes from "./ArticleVotes";
 import CommentAdder from "./CommentAdder";
+import Error from "./Error";
 
 export default function IndividualArticle() {
   const { article_id } = useParams();
@@ -36,9 +37,7 @@ export default function IndividualArticle() {
 
   if (!loaded) return <p>Loading...</p>;
 
-  if (error) {
-    return <Error />;
-  }
+  if (error) return <Error />;
 
   return (
     <>
