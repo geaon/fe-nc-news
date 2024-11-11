@@ -3,19 +3,29 @@
 ## Welcome to my frontend project!
 
 Acces the deployed version here:<br/>
-https://be-nc-news-osc4.onrender.com/api/
+https://geaon-nc-news.netlify.app/
 
 ## Project Information
 
-This project was built using Node.js, allowing interaction with a PostgreSQL (PSQL) database. It follows RESTful principles and adheres to the Model-View-Controller (MVC) pattern. The API offers Create, Read, Update, and Delete (CRUD) operations through various endpoints and Test Driven Development (TDD) was used to ensure the code met expected outcomes.
+This project is a web application built using React.js that allows users to view and interact with a variety of articles. Users can view articles belonging to a certain topic, sort articles by date, author and title, order results to be ascending or descending, like an article, comment on an article and delete a comment they have posted.
 
-You can use this API to view articles, topics, users and comments within the nc_news datatbase. You can retrieve articles based on specific queries, post new comments on articles and delete comments.
+Axios was used to make requests to a previously built API.
 
 ## Project Setup
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+To run the project on your local machine, ensure you have the following installed:<br/>
+**--Node.js version 22.8.0 or later**<br/>
 
-Currently, two official plugins are available:
+Fork and clone the repository:<br/>
+https://github.com/geaon/fe-nc-news
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Run **--npm run dev** in your terminal.
+
+The logged in user is grumpy19.
+
+## Backend Repository
+
+Find the backend code here:<br/>
+https://github.com/geaon/be-nc-news
+
+This portfolio project was created as part of a Digital Skills Bootcamp in Software Engineering provided by [Northcoders](https://northcoders.com/)
