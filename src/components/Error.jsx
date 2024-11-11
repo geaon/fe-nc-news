@@ -12,7 +12,7 @@ export default function Error() {
     <>
       <h2>Sorry, I can't find what you're looking for!</h2>;
       <button onClick={handleClick}>
-        <Link to="/articles">Return to Articles</Link>{" "}
+        <Link to="/articles">Back to Articles</Link>{" "}
       </button>
       ;
     </>

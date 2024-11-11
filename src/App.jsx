@@ -19,11 +19,11 @@ function App() {
       </section>
       <section>
         <Routes>
-          <Route path="/*" element={<Error />} />
           <Route path="/" element={<Home />} />
           <Route path="/articles" element={<ArticlesList />} />
           <Route path="/articles/:article_id" element={<IndividualArticle />} />
           <Route path="/topic/:topic_name" element={<TopicArticles />} />
+          <Route path="/*" element={<Error />} />
         </Routes>
       </section>
     </UserContext.Provider>
